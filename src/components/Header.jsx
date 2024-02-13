@@ -20,7 +20,7 @@ function Header() {
       active: !authStatus,
     },
     {
-      name: "Add Todo",
+      name: window.innerWidth < 600 ? "➕" : "Add Todo",
       slug: "/add-todo",
       active: authStatus,
     },
@@ -35,10 +35,18 @@ function Header() {
           <ul className="flex ml-auto">
             {navItems.map((item) =>
               item.active ? (
-                <li key={item.name}>
+                <li
+                  key={item.name}
+                  style={{
+                    display:
+                      item.name === "Home" && window.innerWidth < 600
+                        ? "none"
+                        : "block",
+                  }}
+                >
                   <button
                     onClick={() => navigate(item.slug)}
-                    className="inline-bock mx-2 px-6 py-2 font-bold text-white duration-200 hover:bg-blue-100 rounded-md hover:text-black"
+                    className="inline-block mx-2 px-4 sm:px-6 py-2 font-bold text-white duration-200 hover:bg-blue-100 rounded-md hover:text-black"
                   >
                     {item.name}
                   </button>

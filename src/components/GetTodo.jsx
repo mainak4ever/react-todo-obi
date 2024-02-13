@@ -124,13 +124,13 @@ const GetTodo = () => {
             onClick={handleUpdate}
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
           >
-            Update
+            {window.innerWidth < 420 ? "💾" : "Update"}
           </button>
           <button
             onClick={handleDelete}
             className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
           >
-            Delete
+            {window.innerWidth < 420 ? "🗑" : "Delete"}
           </button>
         </div>
         <div className="mt-8">
